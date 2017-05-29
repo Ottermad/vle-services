@@ -2,7 +2,7 @@
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-DATABASE_NAME = "mock_election"
+DATABASE_NAME = "services_db"
 
 
 class Config:
@@ -16,7 +16,7 @@ class Development(Config):
     """Config used in development."""
 
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@localhost/{}'.format(DATABASE_NAME)
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:postgres@db/{}'.format(DATABASE_NAME)
 
 
 class Testing(Config):
