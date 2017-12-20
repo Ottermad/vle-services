@@ -6,3 +6,6 @@ ADD requirements.txt /code/
 RUN pip install -r requirements.txt
 RUN pip install git+https://ottermad:af7e0fa5f87f3823703d9e58c7626f0fce6c8c41@github.com/Ottermad/vle-internals.git
 ADD . /code/
+
+CMD ["python", "manage.py","--config", "minikube", "run"]
+
