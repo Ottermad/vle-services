@@ -19,14 +19,14 @@ def register_service():
     json_obj = json_from_request(request)
 
     # Check keys
-    keys = ['name']
+    keys = ['name', 'k8s_name']
     check_keys(keys, json_obj)
     check_values_not_blank(keys, json_obj)
 
     # Check if service exists
     service = Service.query.filter_by(name=json_obj['name']).first()
     if service is None:
-        service = Service(name=json_obj['name'])
+        service = Service(name=json_obj['name'], k8s_name=json_obj['k8s_name'])
         db.session.add(service)
         db.session.commit()
 
